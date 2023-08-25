@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Mastery Showcase</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CSS Mastery Showcase</h1>
+    </header>
+
+    <div class="container">
+      <!-- Interactive Buttons -->
+      <button class="interactive-button">Interactive Button</button>
+
+      <!-- Sliders -->
+      <div class="slider-container">
+        <label class="slider-label">Slider 1:</label>
+        <input type="range" min="0" max="100" value="50" class="slider" />
+      </div>
+
+      <div class="slider-container">
+        <label class="slider-label">Slider 2:</label>
+        <input type="range" min="0" max="100" value="25" class="slider" />
+      </div>
+
+      <!-- Toggles -->
+      <div class="toggle-container">
+        <label class="toggle-label">Toggle 1:</label>
+        <label class="toggle">
+          <input type="checkbox" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-container">
+        <label class="toggle-label">Toggle 2:</label>
+        <label class="toggle">
+          <input type="checkbox" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Pseudo-element Decoration -->
+      <div class="pseudo-element-section">
+        This section showcases a decorative pseudo-element.
+      </div>
+
+      <!-- 3D Element - Card Flip -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-face card-front">Front</div>
+          <div class="card-face card-back">Back</div>
+        </div>
+      </div>
+
+      <!-- Custom Cursor Element -->
+      <div class="custom-cursor"></div>
+
+      <script>
+        const customCursor = document.querySelector(".custom-cursor");
+
+        document.addEventListener("mousemove", (e) => {
+          customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // Change cursor style when hovering over interactive elements
+        const interactiveElements = document.querySelectorAll(
+          ".interactive-button, .slider, .toggle"
+        );
+        interactiveElements.forEach((element) => {
+          element.addEventListener("mouseenter", () => {
+            customCursor.classList.add("changeable");
+          });
+          element.addEventListener("mouseleave", () => {
+            customCursor.classList.remove("changeable");
+          });
+        });
+      </script>
+
+      <!-- Visual Feedback Button -->
+      <button class="feedback-button">Hover Me for Feedback</button>
+    </div>
+    <footer>&copy; 2023 CSS Mastery Showcase</footer>
+  </body>
+</html>
